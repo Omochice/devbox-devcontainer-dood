@@ -1,0 +1,33 @@
+{
+  "name": "devbox-devconatiner-dood",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-containers",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "dev.containers.dockerCredentialHelper": false
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}",
+    "TZ": "Asia/Tokyo"
+  },
+  "runArgs": [
+    "--name",
+    "devbox-devcontainer-dood",
+    "--add-host",
+    "host.docker.internal:host-gateway"
+  ]
+}
